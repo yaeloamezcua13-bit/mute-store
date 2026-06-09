@@ -1,0 +1,41 @@
+CÓMO SUBIR TUS FOTOS REALES
+============================
+
+1) Guarda cada foto dentro de la subcarpeta de su producto.
+2) Nombra el archivo con el COLOR. La foto de frente lleva solo el color;
+   las fotos extra (espalda, detalle) llevan -2, -3, etc.
+
+Estructura y nombres exactos:
+
+fotos/
+  hoodie-alo-accolade/      ← Hoodie Alo Accolade ($2,500)
+      black.jpg             (frente)
+      black-2.jpg           (espalda / detalle, opcional)
+      navy.jpg
+      espresso.jpg
+      grey.jpg
+
+  crewneck-navy/            ← Crewneck Navy ($2,000)
+      navy.jpg
+      navy-2.jpg            (opcional)
+
+  hoodie-essentials/        ← Hoodie Essentials ($1,500)
+      negra.jpg
+      gris.jpg
+      blanca.jpg
+
+  playera-essentials/       ← Playera Essentials ($1,200)
+      negra.jpg
+      gris.jpg
+      blanca.jpg
+
+Acepta .jpg .jpeg .png .webp
+
+3) Cuando termines, avísame (o corre tú):
+      ./venv/bin/python manage.py import_photos
+
+   Eso adjunta todas las fotos a la tienda automáticamente.
+
+NOTA: la foto de frente (sin número) es la que se ve en el catálogo y como
+imagen principal del producto. Las que tienen -2, -3 quedan guardadas en la
+galería del producto.

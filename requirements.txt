@@ -1,0 +1,17 @@
+# Core
+Django==4.2.16
+python-dotenv==1.0.1
+dj-database-url==2.2.0
+Pillow==10.4.0
+whitenoise==6.7.0
+
+# Producción / base de datos PostgreSQL (enterprise)
+psycopg2-binary==2.9.9
+gunicorn==22.0.0
+
+# Pagos
+stripe==10.10.0
+mercadopago==2.2.3
+
+# Generación de imágenes IA (nano banana / Gemini)
+google-genai==0.3.0

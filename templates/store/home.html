@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% load static humanize store_extras %}
+
+{% block content %}
+<!-- HERO -->
+<section class="hero hero--logo" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-logo-wrap" id="hero-logo">
+    <div class="hero-logo-stack">
+      <img src="{% static 'img/mute-ring.png' %}?v=5" alt="" class="hero-ring-img" id="hero-ring-img" aria-hidden="true">
+      <img src="{% static 'img/mute-word.png' %}?v=4" alt="MUTE" class="hero-word-img">
+    </div>
+    <p class="hero-tagline">{{ "Vístete en silencio"|t }}</p>
+  </div>
+  <div class="hero-scroll-cue" id="hero-scroll">
+    <span>{{ "DESLIZA"|t }}</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="section" id="productos">
+  <div class="section-head">
+    <span class="eyebrow">{{ "La colección"|t }}</span>
+    <h2>{{ "Elige tu pieza"|t }}</h2>
+    <p>{{ "Cada pieza, hecha con la misma obsesión por el detalle. Precios en MXN, IVA incluido."|t }}</p>
+  </div>
+  <div class="product-grid">
+    {% for product in products %}
+    {% with color=product.colors.first %}
+    <a href="{{ product.get_absolute_url }}" class="card reveal">
+      <div class="card-media">
+        {% if product.badge %}<span class="card-badge">{{ product.badge }}</span>{% endif %}
+        {% if color.image %}
+          <img src="{{ color.image.url }}" alt="{{ product.name }}">
+        {% elif product.primary_image %}
+          <img src="{{ product.primary_image.image.url }}" alt="{{ product.name }}">
+        {% else %}
+          <div class="ph" style="--ph-color: {% if color %}{{ color.hex_code }}{% else %}#2a2a2a{% endif %}">
+            <div class="ph-hoodie"><span class="ph-logo">MUTE</span></div>
+          </div>
+        {% endif %}
+        <div class="card-swatches">
+          {% for c in product.colors.all %}
+          <span class="swatch" style="background: {{ c.hex_code }}" title="{{ c.name }}"></span>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="card-cat">{{ product.get_category_display|t }}</span>
+        <span class="card-name">{{ product.name|t }}</span>
+        <div class="card-foot">
+          <span class="card-price">${{ product.price|floatformat:0|intcomma }} <small>MXN</small></span>
+          <span class="btn btn-outline" style="padding:8px 16px; font-size:13px;">{{ "Ver"|t }} →</span>
+        </div>
+      </div>
+    </a>
+    {% endwith %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- SHOWCASE deslizable (de la pieza destacada) -->
+{% if featured %}
+<section class="showcase" id="showcase"
+         data-showcase
+         data-color="{% if featured.colors.first %}{{ featured.colors.first.hex_code }}{% else %}#2a2a2a{% endif %}">
+  <div class="showcase-pin">
+    <div class="showcase-track">
+      <!-- Panel de intro -->
+      <div class="feature-panel">
+        <div class="feature-text">
+          <span class="feature-num">{{ "CALIDAD MUTE"|t }}</span>
+          <h3>{{ featured.name|t }}</h3>
+          <p>{{ "Desliza para descubrir cada detalle: la tela, el logo, la capucha, los puños. Esto es lo que no se ve en la foto."|t }}</p>
+          <a href="{{ featured.get_absolute_url }}" class="btn btn-accent" style="margin-top:20px;">{{ "Comprar"|t }} ${{ featured.price|floatformat:0|intcomma }}</a>
+        </div>
+        <div class="feature-visual">
+          {% with fc=featured.colors.first %}
+          {% if fc.image %}
+            <img src="{{ fc.image.url }}" alt="{{ featured.name }}">
+          {% else %}
+            <div class="ph" style="--ph-color: {% if fc %}{{ fc.hex_code }}{% else %}#2a2a2a{% endif %}; height:100%;">
+              <div class="ph-hoodie"><span class="ph-logo">MUTE</span></div>
+            </div>
+          {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+      <!-- Paneles de características -->
+      {% for f in featured.features.all %}
+      <div class="feature-panel">
+        <div class="feature-text">
+          <div class="feature-icon">{{ f.icon }}</div>
+          <h3>{{ f.title|t }}</h3>
+          <p>{{ f.description|t }}</p>
+        </div>
+        <div class="feature-visual">
+          {% if f.image %}
+            <img src="{{ f.image.url }}" alt="{{ f.title }}">
+          {% else %}
+            <div class="ph" style="--ph-color: {% if featured.colors.first %}{{ featured.colors.first.hex_code }}{% else %}#2a2a2a{% endif %}; height:100%;">
+              <div class="ph-hoodie"><span class="ph-logo" style="font-size:26px;">{{ f.icon }}</span></div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="showcase-progress" data-progress></div>
+    <div class="showcase-hint">{{ "DESLIZA / SCROLL →"|t }}</div>
+  </div>
+</section>
+{% endif %}
+
+<!-- BENEFICIOS -->
+<section class="section">
+  <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px,1fr));">
+    <div class="reveal" style="text-align:center; padding:24px;">
+      <div style="font-size:38px;">🇲🇽</div>
+      <h3 style="margin:12px 0 6px;">{{ "Envío gratis en México"|t }}</h3>
+      <p style="color:var(--muted); font-size:14px;">{{ "A todo el país, sin mínimo de compra."|t }}</p>
+    </div>
+    <div class="reveal" style="text-align:center; padding:24px;">
+      <div style="font-size:38px;">🧵</div>
+      <h3 style="margin:12px 0 6px;">{{ "Tela premium"|t }}</h3>
+      <p style="color:var(--muted); font-size:14px;">{{ "380 g/m², interior afelpado, logo bordado."|t }}</p>
+    </div>
+    <div class="reveal" style="text-align:center; padding:24px;">
+      <div style="font-size:38px;">🔒</div>
+      <h3 style="margin:12px 0 6px;">{{ "Pago seguro"|t }}</h3>
+      <p style="color:var(--muted); font-size:14px;">{{ "Stripe y MercadoPago. Tus datos protegidos."|t }}</p>
+    </div>
+    <div class="reveal" style="text-align:center; padding:24px;">
+      <div style="font-size:38px;">💬</div>
+      <h3 style="margin:12px 0 6px;">{{ "Atención directa"|t }}</h3>
+      <p style="color:var(--muted); font-size:14px;">WhatsApp {{ store_phone }} · @{{ store_instagram }}</p>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/showcase.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load humanize store_extras %}
+
+{% block title %}{{ "Carrito"|t }} — {{ store_name }}{% endblock %}
+
+{% block content %}
+<section class="section" style="max-width:900px; margin:0 auto;">
+  <div class="section-head"><span class="eyebrow">{{ "Tu selección"|t }}</span><h2>{{ "Carrito"|t }}</h2></div>
+
+  {% if cart.is_empty %}
+    <div style="text-align:center; padding:60px 0; color:var(--muted)">
+      <p style="margin-bottom:20px;">{{ "Tu carrito está vacío."|t }}</p>
+      <a href="{% url 'store:home' %}#productos" class="btn btn-accent">{{ "Ver productos"|t }}</a>
+    </div>
+  {% else %}
+    <div style="display:flex; flex-direction:column; gap:0;">
+      {% for item in cart %}
+      <div class="cart-item">
+        <div class="cart-item-img">
+          {% if item.image %}<img src="{{ item.image.url }}" alt="{{ item.product.name }}">
+          {% else %}<div class="ph" style="--ph-color: {{ item.color.hex_code }}; height:100%;"><span class="ph-logo" style="font-size:12px;">MUTE</span></div>{% endif %}
+        </div>
+        <div class="cart-item-info">
+          <span class="name">{{ item.product.name|t }}</span>
+          <span class="opts">{{ item.color.name|t }} · {{ "Talla"|t }} {{ item.size }}</span>
+          <div class="cart-item-bottom">
+            <span class="price">${{ item.line_total|floatformat:0|intcomma }}</span>
+            <a href="https://wa.me/{{ store_phone_wa }}" style="font-size:12px; color:var(--muted)">x{{ item.quantity }}</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:32px; padding-top:24px; border-top:1px solid var(--line);">
+      <div>
+        <div style="font-size:24px; font-family:var(--font-display); font-weight:600;">${{ cart.subtotal|floatformat:0|intcomma }} MXN</div>
+        <div style="color:var(--muted); font-size:13px;">{{ "IVA incluido · Envío en el checkout"|t }}</div>
+      </div>
+      <a href="{% url 'store:checkout' %}" class="btn btn-accent btn-lg">{{ "Finalizar compra"|t }} →</a>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

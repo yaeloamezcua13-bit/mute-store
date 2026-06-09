@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Pago cancelado — {{ store_name }}{% endblock %}
+
+{% block content %}
+<div class="confirm">
+  <div class="confirm-icon" style="background:var(--surface-2)">↺</div>
+  <h1>Pago cancelado</h1>
+  <p>Tu pedido <strong>{{ order.order_number }}</strong> quedó pendiente de pago.</p>
+  <p>No te preocupes, tus productos siguen aquí. Puedes intentarlo de nuevo cuando quieras.</p>
+  <div style="display:flex; gap:12px; justify-content:center; margin-top:32px; flex-wrap:wrap;">
+    <a href="{% url 'store:checkout' %}" class="btn btn-accent">Reintentar pago</a>
+    <a href="{% url 'store:home' %}" class="btn btn-outline">Volver al inicio</a>
+  </div>
+</div>
+{% endblock %}

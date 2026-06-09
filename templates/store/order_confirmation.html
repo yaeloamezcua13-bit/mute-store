@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load humanize store_extras %}
+
+{% block title %}{{ "¡Gracias por tu compra!"|t }} — {{ store_name }}{% endblock %}
+
+{% block content %}
+<div class="confirm">
+  <div class="confirm-icon">✓</div>
+  <h1>{{ "¡Gracias"|t }}, {{ order.full_name|truncatewords:1 }}!</h1>
+  <p>{{ "Tu pedido"|t }} <strong>{{ order.order_number }}</strong> {{ "fue recibido."|t }}</p>
+  <p>{{ "Te enviamos la confirmación a"|t }} <strong>{{ order.email }}</strong>.</p>
+
+  {% if simulated %}
+  <div class="confirm-note" style="margin-top:24px;">
+    ⚙️ <strong>{{ "Modo de prueba:"|t }}</strong> {{ "este pedido se guardó en la base de datos pero no se cobró dinero real. Configura tus llaves de pago para procesar cobros."|t }}
+  </div>
+  {% endif %}
+
+  <div class="confirm-card">
+    {% for item in order.items.all %}
+    <div class="row">
+      <span>{{ item.quantity }}× {{ item.product_name|t }} <span style="color:var(--muted)">({{ item.color|t }}/{{ item.size }})</span></span>
+      <span>${{ item.line_total|floatformat:2|intcomma }}</span>
+    </div>
+    {% endfor %}
+    <div class="row" style="border-top:1px solid var(--line); margin-top:8px; padding-top:14px; color:var(--muted)">
+      <span>{{ "Subtotal (IVA incl.)"|t }}</span><span>${{ order.subtotal|floatformat:2|intcomma }}</span>
+    </div>
+    <div class="row" style="color:var(--muted); font-size:13px;">
+      <span>{{ "↳ IVA incluido"|t }}</span><span>${{ order.iva_amount|floatformat:2|intcomma }}</span>
+    </div>
+    <div class="row" style="color:var(--muted)">
+      <span>{{ "Envío"|t }} ({{ order.country_name|t }})</span>
+      <span>{% if order.shipping_cost == 0 %}<span style="color:var(--ok)">{{ "GRATIS"|t }}</span>{% else %}${{ order.shipping_cost|floatformat:2|intcomma }}{% endif %}</span>
+    </div>
+    <div class="row total">
+      <span>{{ "Total"|t }}</span><span>${{ order.total|floatformat:2|intcomma }} MXN</span>
+    </div>
+  </div>
+
+  <p style="color:var(--muted); font-size:14px;">{{ "Enviaremos a:"|t }} {{ order.address_line }}, {{ order.city }}{% if order.state %}, {{ order.state }}{% endif %}, {{ "CP"|t }} {{ order.postal_code }}, {{ order.country_name|t }}.</p>
+
+  <div style="display:flex; gap:12px; justify-content:center; margin-top:32px; flex-wrap:wrap;">
+    <a href="{% url 'store:home' %}" class="btn btn-light">{{ "Seguir comprando"|t }}</a>
+    <a href="https://wa.me/{{ store_phone_wa }}?text=Hola,%20mi%20pedido%20es%20{{ order.order_number }}" target="_blank" rel="noopener" class="btn btn-outline">{{ "Dudas por WhatsApp"|t }}</a>
+  </div>
+</div>
+{% endblock %}

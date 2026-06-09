@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load static humanize store_extras %}
+
+{% block title %}Checkout — {{ store_name }}{% endblock %}
+
+{% block content %}
+<form method="post" class="checkout" id="checkout-form" novalidate>
+  {% csrf_token %}
+
+  <!-- Datos del cliente -->
+  <div class="checkout-main">
+    <h1>{{ "Finalizar compra"|t }}</h1>
+    <p class="checkout-sub">{{ "Completa tus datos. El envío se calcula automáticamente según tu país."|t }}</p>
+
+    <div class="form-section-title">{{ "Contacto"|t }}</div>
+    <div class="field">
+      <label for="id_full_name">{{ "Nombre completo"|t }}</label>
+      {{ form.full_name }}
+      {% if form.full_name.errors %}<div class="err">{{ form.full_name.errors.0 }}</div>{% endif %}
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="id_email">{{ "Correo electrónico"|t }}</label>
+        {{ form.email }}
+        {% if form.email.errors %}<div class="err">{{ form.email.errors.0 }}</div>{% endif %}
+      </div>
+      <div class="field">
+        <label for="id_phone">{{ "Teléfono"|t }}</label>
+        {{ form.phone }}
+      </div>
+    </div>
+
+    <div class="form-section-title">{{ "Dirección de envío"|t }}</div>
+    <div class="field">
+      <label for="id_address_line">{{ "Dirección"|t }}</label>
+      {{ form.address_line }}
+      {% if form.address_line.errors %}<div class="err">{{ form.address_line.errors.0 }}</div>{% endif %}
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="id_city">{{ "Ciudad"|t }}</label>
+        {{ form.city }}
+        {% if form.city.errors %}<div class="err">{{ form.city.errors.0 }}</div>{% endif %}
+      </div>
+      <div class="field">
+        <label for="id_state">{{ "Estado / Provincia"|t }}</label>
+        {{ form.state }}
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="id_country">{{ "País"|t }}</label>
+        {{ form.country }}
+      </div>
+      <div class="field">
+        <label for="id_postal_code">{{ "Código postal"|t }}</label>
+        {{ form.postal_code }}
+        {% if form.postal_code.errors %}<div class="err">{{ form.postal_code.errors.0 }}</div>{% endif %}
+      </div>
+    </div>
+
+    <div class="form-section-title">{{ "Método de pago"|t }}</div>
+    {% if not stripe_enabled and not mercadopago_enabled %}
+    <div class="confirm-note" style="margin-bottom:16px;">
+      {{ "⚙️ Modo de prueba activo. Configura tus llaves de Stripe/MercadoPago para cobrar de verdad. El pedido se guardará igual."|t }}
+    </div>
+    {% endif %}
+    <div class="pay-methods">
+      {% if stripe_enabled or not mercadopago_enabled %}
+      <label class="pay-opt">
+        <input type="radio" name="payment_method" value="stripe" checked>
+        <span>
+          <span class="pay-label">{{ "💳 Tarjeta de crédito / débito"|t }}</span>
+          <span class="pay-desc">{{ "Pago seguro con Stripe. Visa, Mastercard, Amex."|t }}</span>
+        </span>
+      </label>
+      {% endif %}
+      {% if mercadopago_enabled %}
+      <label class="pay-opt">
+        <input type="radio" name="payment_method" value="mercadopago" {% if not stripe_enabled %}checked{% endif %}>
+        <span>
+          <span class="pay-label">🔵 MercadoPago</span>
+          <span class="pay-desc">{{ "Tarjetas, OXXO, SPEI y saldo MercadoPago."|t }}</span>
+        </span>
+      </label>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Resumen / desglose -->
+  <aside class="summary" id="summary"
+         data-subtotal="{{ cart.subtotal }}"
+         data-iva="{{ totals.iva }}"
+         data-base="{{ totals.base }}">
+    <h3>{{ "Tu pedido"|t }}</h3>
+    <div class="summary-items">
+      {% for item in cart %}
+      <div class="summary-item">
+        <div class="si-img">
+          {% if item.image %}<img src="{{ item.image.url }}" alt="{{ item.product.name }}">
+          {% else %}
+          <div class="ph" style="--ph-color: {{ item.color.hex_code }}; height:100%;">
+            <span class="ph-logo" style="font-size:11px;">MUTE</span>
+          </div>
+          {% endif %}
+        </div>
+        <div class="si-info">
+          <div class="n">{{ item.product.name|t }}</div>
+          <div class="o">{{ item.color.name|t }} · {{ item.size }} · x{{ item.quantity }}</div>
+        </div>
+        <div class="si-price">${{ item.line_total|floatformat:0|intcomma }}</div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="breakdown">
+      <div class="row">
+        <span>{{ "Subtotal"|t }} <span class="muted-sm">{{ "(IVA incl.)"|t }}</span></span>
+        <b id="bd-subtotal">${{ totals.subtotal|floatformat:2|intcomma }}</b>
+      </div>
+      <div class="row muted-sm">
+        <span>{{ "↳ Base gravable"|t }}</span>
+        <span id="bd-base">${{ totals.base|floatformat:2|intcomma }}</span>
+      </div>
+      <div class="row muted-sm">
+        <span>{{ "↳ IVA"|t }} ({{ totals.iva_rate }}%)</span>
+        <span id="bd-iva">${{ totals.iva|floatformat:2|intcomma }}</span>
+      </div>
+      <div class="row">
+        <span>{{ "Envío"|t }}</span>
+        <b id="bd-shipping" class="ship-flash">
+          {% if totals.free_shipping %}<span class="free">{{ "GRATIS"|t }}</span>{% else %}${{ totals.shipping|floatformat:2|intcomma }}{% endif %}
+        </b>
+      </div>
+      <div class="row total">
+        <b>{{ "Total"|t }}</b>
+        <strong id="bd-total">${{ totals.total|floatformat:2|intcomma }}</strong>
+      </div>
+    </div>
+
+    <div class="ship-banner free" id="ship-banner">
+      {{ "🇲🇽 ¡Envío gratis a México!"|t }}
+    </div>
+
+    <button type="submit" class="btn btn-accent btn-block btn-lg" style="margin-top:20px;" id="pay-btn">
+      {{ "Pagar ahora"|t }}
+    </button>
+    <p class="cart-note" style="text-align:center; margin-top:12px;">{{ "🔒 Pago seguro · Datos cifrados"|t }}</p>
+  </aside>
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/checkout.js' %}"></script>
+{% endblock %}

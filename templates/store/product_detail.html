@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load static humanize store_extras %}
+
+{% block title %}{{ product.name }} — {{ store_name }}{% endblock %}
+{% block meta_description %}{{ product.description }}{% endblock %}
+
+{% block content %}
+<div class="pd">
+  <!-- Galería -->
+  <div class="pd-gallery">
+    <div class="pd-main" id="pd-main">
+      {% with color=product.colors.first %}
+      <img id="pd-img" alt="{{ product.name }}"
+           src="{% if color.image %}{{ color.image.url }}{% endif %}"
+           style="width:100%;height:100%;object-fit:cover;{% if not color.image %}display:none;{% endif %}">
+      <div class="ph" id="pd-visual"
+           style="--ph-color: {% if color %}{{ color.hex_code }}{% else %}#2a2a2a{% endif %}; height:100%;{% if color.image %}display:none;{% endif %}">
+        <div class="ph-hoodie"><span class="ph-logo">MUTE</span></div>
+      </div>
+      {% endwith %}
+    </div>
+    <div class="pd-thumbs" id="pd-thumbs"></div>
+  </div>
+
+  <!-- Info -->
+  <div class="pd-info">
+    <span class="pd-cat">{{ product.get_category_display|t }}</span>
+    <h1>{{ product.name|t }}</h1>
+    <div class="pd-price">
+      ${{ product.price|floatformat:0|intcomma }} <span style="font-size:16px; color:var(--muted)">MXN</span>
+      <small>{{ "IVA incluido"|t }} (${{ breakdown.iva|floatformat:2|intcomma }} {{ "de IVA"|t }})</small>
+    </div>
+
+    <p class="pd-desc">{{ product.description|t }}</p>
+
+    <!-- Colores -->
+    <div class="pd-block">
+      <div class="label">{{ "Color:"|t }} <span id="color-name">{{ product.colors.first.name|t }}</span></div>
+      <div class="colors" id="colors">
+        {% for c in product.colors.all %}
+        <div class="color-opt {% if forloop.first %}active{% endif %}"
+             data-color-id="{{ c.id }}" data-color-name="{{ c.name|t }}" data-hex="{{ c.hex_code }}"
+             {% if c.image %}data-image="{{ c.image.url }}"{% endif %}>
+          <span class="color-dot" style="background: {{ c.hex_code }}"></span>
+          <span>{{ c.name|t }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Tallas -->
+    <div class="pd-block">
+      <div class="label">{{ "Talla"|t }}</div>
+      <div class="sizes" id="sizes">
+        {% for size in sizes %}
+        <button class="size-opt" data-size="{{ size }}">{{ size }}</button>
+        {% endfor %}
+      </div>
+      <div class="stock-hint" id="stock-hint">{{ "Selecciona color y talla"|t }}</div>
+    </div>
+
+    <!-- Acciones -->
+    <div class="pd-actions">
+      <div class="qty">
+        <button type="button" id="qty-minus">−</button>
+        <input type="text" id="qty" value="1" readonly>
+        <button type="button" id="qty-plus">+</button>
+      </div>
+      <button class="btn btn-accent btn-block" id="add-to-cart" disabled>{{ "Agregar al carrito"|t }}</button>
+    </div>
+
+    <!-- Detalles -->
+    <div class="pd-meta">
+      <div><span>🧵</span><span><b>{{ "Tela:"|t }}</b> {{ product.fabric|t }}</span></div>
+      {% for f in product.features.all %}
+      <div><span>{{ f.icon }}</span><span><b>{{ f.title|t }}:</b> {{ f.description|t }}</span></div>
+      {% endfor %}
+      <div><span>🚚</span><span><b>{{ "Envío:"|t }}</b> {{ "Gratis en México · $300 MXN internacional"|t }}</span></div>
+      <div><span>💬</span><span><b>{{ "¿Dudas?"|t }}</b> WhatsApp <a href="https://wa.me/{{ store_phone_wa }}" style="color:var(--accent)">{{ store_phone }}</a></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Showcase deslizable de ESTE producto -->
+{% if product.features.all %}
+<section class="showcase" id="showcase" data-showcase data-color="{% if product.colors.first %}{{ product.colors.first.hex_code }}{% else %}#2a2a2a{% endif %}">
+  <div class="showcase-pin">
+    <div class="showcase-track">
+      <div class="feature-panel">
+        <div class="feature-text">
+          <span class="feature-num">{{ "CALIDAD MUTE"|t }}</span>
+          <h3>{{ "Cada detalle importa"|t }}</h3>
+          <p>{{ "Desliza para recorrer el"|t }} {{ product.name|t }} {{ "por dentro: la tela, el logo, la capucha, los puños."|t }}</p>
+        </div>
+        <div class="feature-visual">
+          {% with pc=product.colors.first %}
+          {% if pc.image %}
+            <img src="{{ pc.image.url }}" alt="{{ product.name }}">
+          {% else %}
+            <div class="ph" style="--ph-color: {% if pc %}{{ pc.hex_code }}{% else %}#2a2a2a{% endif %}; height:100%;">
+              <div class="ph-hoodie"><span class="ph-logo">MUTE</span></div>
+            </div>
+          {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+      {% for f in product.features.all %}
+      <div class="feature-panel">
+        <div class="feature-text">
+          <div class="feature-icon">{{ f.icon }}</div>
+          <h3>{{ f.title|t }}</h3>
+          <p>{{ f.description|t }}</p>
+        </div>
+        <div class="feature-visual">
+          {% if f.image %}<img src="{{ f.image.url }}" alt="{{ f.title }}">
+          {% else %}
+          <div class="ph" style="--ph-color: {% if product.colors.first %}{{ product.colors.first.hex_code }}{% else %}#2a2a2a{% endif %}; height:100%;">
+            <div class="ph-hoodie"><span class="ph-logo" style="font-size:26px;">{{ f.icon }}</span></div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="showcase-progress" data-progress></div>
+    <div class="showcase-hint">{{ "DESLIZA / SCROLL →"|t }}</div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Relacionados -->
+{% if related %}
+<section class="section">
+  <div class="section-head"><span class="eyebrow">{{ "También te puede gustar"|t }}</span><h2>{{ "Completa tu look"|t }}</h2></div>
+  <div class="product-grid">
+    {% for product in related %}
+    {% with color=product.colors.first %}
+    <a href="{{ product.get_absolute_url }}" class="card reveal">
+      <div class="card-media">
+        {% if product.badge %}<span class="card-badge">{{ product.badge }}</span>{% endif %}
+        <div class="ph" style="--ph-color: {% if color %}{{ color.hex_code }}{% else %}#2a2a2a{% endif %}">
+          <div class="ph-hoodie"><span class="ph-logo">MUTE</span></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="card-cat">{{ product.get_category_display|t }}</span>
+        <span class="card-name">{{ product.name|t }}</span>
+        <div class="card-foot"><span class="card-price">${{ product.price|floatformat:0|intcomma }} <small>MXN</small></span></div>
+      </div>
+    </a>
+    {% endwith %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<script id="variant-map" type="application/json">{{ variant_map_json|safe }}</script>
+<script id="images-map" type="application/json">{{ images_by_color_json|safe }}</script>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/product.js' %}"></script>
+<script src="{% static 'js/showcase.js' %}"></script>
+{% endblock %}

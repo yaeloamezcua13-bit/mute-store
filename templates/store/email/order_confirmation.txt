@@ -1,0 +1,23 @@
+¡Gracias por tu compra en MUTE!
+
+Hola {{ order.full_name }},
+
+Recibimos tu pedido {{ order.order_number }}. Aquí está el resumen:
+
+{% for item in order.items.all %}- {{ item.quantity }}x {{ item.product_name }} ({{ item.color }}/{{ item.size }}) — ${{ item.line_total }} MXN
+{% endfor %}
+-------------------------------------------
+Subtotal (IVA incluido): ${{ order.subtotal }} MXN
+  IVA incluido:          ${{ order.iva_amount }} MXN
+Envío ({{ order.country_name }}):  {% if order.shipping_cost == 0 %}GRATIS{% else %}${{ order.shipping_cost }} MXN{% endif %}
+-------------------------------------------
+TOTAL: ${{ order.total }} MXN
+
+Enviaremos a:
+{{ order.address_line }}
+{{ order.city }}{% if order.state %}, {{ order.state }}{% endif %}
+CP {{ order.postal_code }}, {{ order.country_name }}
+
+¿Dudas? Escríbenos por WhatsApp al 9988416700 o Instagram @mut3.mx
+
+Gracias por elegir MUTE.

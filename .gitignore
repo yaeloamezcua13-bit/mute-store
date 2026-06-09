@@ -1,0 +1,20 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+/staticfiles/
+# /media/ SÍ se versiona: las fotos de producto se sirven desde el repo en Render
+# (el plan gratis no tiene disco persistente).
+
+# Entorno
+.env
+
+# Editores / SO
+.DS_Store
+.vscode/
+.idea/

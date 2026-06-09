@@ -1,0 +1,52 @@
+# Blueprint de Render para la tienda MUTE.
+# Crea automáticamente el servicio web + base de datos PostgreSQL.
+databases:
+  - name: mute-db
+    plan: free
+    databaseName: mute
+    user: mute
+
+services:
+  - type: web
+    name: mute-store
+    runtime: python
+    plan: free
+    branch: main
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn config.wsgi:application"
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.4"
+      - key: SECRET_KEY
+        generateValue: true            # Render genera una llave segura
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mute-db
+          property: connectionString
+      - key: WEB_CONCURRENCY
+        value: "4"
+      # --- Tienda ---
+      - key: STORE_PHONE
+        value: "9988416700"
+      - key: STORE_INSTAGRAM
+        value: "mut3.mx"
+      - key: STORE_EMAIL
+        value: "hola@mute.mx"
+      # --- Pagos (los pegas tú en el panel de Render: Environment) ---
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PUBLIC_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: MERCADOPAGO_ACCESS_TOKEN
+        sync: false
+      - key: MERCADOPAGO_PUBLIC_KEY
+        sync: false
+      - key: MERCADOPAGO_SANDBOX
+        value: "True"

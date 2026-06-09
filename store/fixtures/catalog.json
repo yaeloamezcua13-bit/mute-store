@@ -1,0 +1,1550 @@
+[
+{
+  "model": "store.product",
+  "pk": 2,
+  "fields": {
+    "name": "Crewneck Navy",
+    "slug": "crewneck-navy",
+    "category": "crewneck",
+    "description": "La sudadera de cuello redondo de MUTE en navy profundo. Misma tela premium del hoodie, en silueta limpia y atemporal.",
+    "fabric": "Algodón peinado 380 g/m², interior afelpado.",
+    "price": "2000.00",
+    "badge": "Nuevo",
+    "is_active": true,
+    "is_featured": false,
+    "sort_order": 5,
+    "created_at": "2026-06-09T02:58:58.056Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 5,
+  "fields": {
+    "name": "Hoodie Alo · Black",
+    "slug": "hoodie-alo-black",
+    "category": "hoodie_alo",
+    "description": "El hoodie insignia de MUTE. Tela pesada con caída estructurada, capucha forrada y logo bordado. Hecho para durar años.",
+    "fabric": "Algodón peinado 380 g/m², interior french terry afelpado.",
+    "price": "2500.00",
+    "badge": "Bestseller",
+    "is_active": true,
+    "is_featured": true,
+    "sort_order": 1,
+    "created_at": "2026-06-09T05:21:36.021Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 6,
+  "fields": {
+    "name": "Hoodie Alo · Navy",
+    "slug": "hoodie-alo-navy",
+    "category": "hoodie_alo",
+    "description": "El hoodie insignia de MUTE. Tela pesada con caída estructurada, capucha forrada y logo bordado. Hecho para durar años.",
+    "fabric": "Algodón peinado 380 g/m², interior french terry afelpado.",
+    "price": "2500.00",
+    "badge": "",
+    "is_active": true,
+    "is_featured": false,
+    "sort_order": 2,
+    "created_at": "2026-06-09T05:21:36.029Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 7,
+  "fields": {
+    "name": "Hoodie Alo · Espresso",
+    "slug": "hoodie-alo-espresso",
+    "category": "hoodie_alo",
+    "description": "El hoodie insignia de MUTE. Tela pesada con caída estructurada, capucha forrada y logo bordado. Hecho para durar años.",
+    "fabric": "Algodón peinado 380 g/m², interior french terry afelpado.",
+    "price": "2500.00",
+    "badge": "",
+    "is_active": true,
+    "is_featured": false,
+    "sort_order": 3,
+    "created_at": "2026-06-09T05:21:36.036Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 8,
+  "fields": {
+    "name": "Hoodie Alo · Grey",
+    "slug": "hoodie-alo-grey",
+    "category": "hoodie_alo",
+    "description": "El hoodie insignia de MUTE. Tela pesada con caída estructurada, capucha forrada y logo bordado. Hecho para durar años.",
+    "fabric": "Algodón peinado 380 g/m², interior french terry afelpado.",
+    "price": "2500.00",
+    "badge": "",
+    "is_active": true,
+    "is_featured": false,
+    "sort_order": 4,
+    "created_at": "2026-06-09T05:21:36.043Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 9,
+  "fields": {
+    "name": "Hoodie Essentials · Negra",
+    "slug": "hoodie-essentials-negra",
+    "category": "hoodie_essentials",
+    "description": "El básico esencial: cómodo, versátil y a buen precio. El hoodie de diario que combina con todo.",
+    "fabric": "Algodón/poliéster 320 g/m², interior suave.",
+    "price": "1500.00",
+    "badge": "",
+    "is_active": true,
+    "is_featured": false,
+    "sort_order": 6,
+    "created_at": "2026-06-09T16:18:31.291Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 10,
+  "fields": {
+    "name": "Hoodie Essentials · Gris",
+    "slug": "hoodie-essentials-gris",
+    "category": "hoodie_essentials",
+    "description": "El básico esencial: cómodo, versátil y a buen precio. El hoodie de diario que combina con todo.",
+    "fabric": "Algodón/poliéster 320 g/m², interior suave.",
+    "price": "1500.00",
+    "badge": "",
+    "is_active": true,
+    "is_featured": false,
+    "sort_order": 7,
+    "created_at": "2026-06-09T16:18:31.296Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 11,
+  "fields": {
+    "name": "Hoodie Essentials · Blanca",
+    "slug": "hoodie-essentials-blanca",
+    "category": "hoodie_essentials",
+    "description": "El básico esencial: cómodo, versátil y a buen precio. El hoodie de diario que combina con todo.",
+    "fabric": "Algodón/poliéster 320 g/m², interior suave.",
+    "price": "1500.00",
+    "badge": "",
+    "is_active": true,
+    "is_featured": false,
+    "sort_order": 8,
+    "created_at": "2026-06-09T16:18:31.301Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 12,
+  "fields": {
+    "name": "Playera Essentials · Negra",
+    "slug": "playera-essentials-negra",
+    "category": "playera_essentials",
+    "description": "La playera esencial de MUTE. Algodón con cuerpo, corte regular y cuello que no se vence.",
+    "fabric": "100% algodón 220 g/m², peso medio.",
+    "price": "1200.00",
+    "badge": "",
+    "is_active": true,
+    "is_featured": false,
+    "sort_order": 9,
+    "created_at": "2026-06-09T16:18:31.306Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 13,
+  "fields": {
+    "name": "Playera Essentials · Gris",
+    "slug": "playera-essentials-gris",
+    "category": "playera_essentials",
+    "description": "La playera esencial de MUTE. Algodón con cuerpo, corte regular y cuello que no se vence.",
+    "fabric": "100% algodón 220 g/m², peso medio.",
+    "price": "1200.00",
+    "badge": "",
+    "is_active": true,
+    "is_featured": false,
+    "sort_order": 10,
+    "created_at": "2026-06-09T16:18:31.311Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 14,
+  "fields": {
+    "name": "Playera Essentials · Blanca",
+    "slug": "playera-essentials-blanca",
+    "category": "playera_essentials",
+    "description": "La playera esencial de MUTE. Algodón con cuerpo, corte regular y cuello que no se vence.",
+    "fabric": "100% algodón 220 g/m², peso medio.",
+    "price": "1200.00",
+    "badge": "",
+    "is_active": true,
+    "is_featured": false,
+    "sort_order": 11,
+    "created_at": "2026-06-09T16:18:31.313Z"
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 5,
+  "fields": {
+    "product": 2,
+    "name": "Navy",
+    "hex_code": "#1b2a4a",
+    "image": "products/colors/navy_JWqkkTB.jpeg",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 6,
+  "fields": {
+    "product": 9,
+    "name": "Negra",
+    "hex_code": "#1a1a1a",
+    "image": "products/colors/negra.jpeg",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 7,
+  "fields": {
+    "product": 10,
+    "name": "Gris",
+    "hex_code": "#8a8a8a",
+    "image": "products/colors/gris.jpeg",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 8,
+  "fields": {
+    "product": 11,
+    "name": "Blanca",
+    "hex_code": "#f2f0eb",
+    "image": "products/colors/blanca.jpeg",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 9,
+  "fields": {
+    "product": 12,
+    "name": "Negra",
+    "hex_code": "#1a1a1a",
+    "image": "products/colors/negra_qke4OBM.jpeg",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 10,
+  "fields": {
+    "product": 13,
+    "name": "Gris",
+    "hex_code": "#8a8a8a",
+    "image": "products/colors/gris_iCSh2gS.jpeg",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 11,
+  "fields": {
+    "product": 14,
+    "name": "Blanca",
+    "hex_code": "#f2f0eb",
+    "image": "products/colors/blanca_oLbbsBF.jpeg",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 12,
+  "fields": {
+    "product": 5,
+    "name": "Black",
+    "hex_code": "#1a1a1a",
+    "image": "products/colors/hoodie-alo-black-clean.jpg",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 13,
+  "fields": {
+    "product": 6,
+    "name": "Navy",
+    "hex_code": "#1b2a4a",
+    "image": "products/gallery/navy-3_6JSvaDR.png",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 14,
+  "fields": {
+    "product": 7,
+    "name": "Espresso",
+    "hex_code": "#4b352a",
+    "image": "products/colors/espresso_rrUYySU.jpg",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productcolor",
+  "pk": 15,
+  "fields": {
+    "product": 8,
+    "name": "Grey",
+    "hex_code": "#8a8a8a",
+    "image": "products/colors/hoodie-alo-grey-clean.jpg",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 17,
+  "fields": {
+    "product": 2,
+    "color": 5,
+    "size": "S",
+    "stock": 25,
+    "sku": "CREWNECK-NAV-NAVY-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 18,
+  "fields": {
+    "product": 2,
+    "color": 5,
+    "size": "M",
+    "stock": 25,
+    "sku": "CREWNECK-NAV-NAVY-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 19,
+  "fields": {
+    "product": 2,
+    "color": 5,
+    "size": "L",
+    "stock": 25,
+    "sku": "CREWNECK-NAV-NAVY-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 20,
+  "fields": {
+    "product": 2,
+    "color": 5,
+    "size": "XL",
+    "stock": 25,
+    "sku": "CREWNECK-NAV-NAVY-XL"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 21,
+  "fields": {
+    "product": 9,
+    "color": 6,
+    "size": "S",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-NEGRA-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 22,
+  "fields": {
+    "product": 9,
+    "color": 6,
+    "size": "M",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-NEGRA-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 23,
+  "fields": {
+    "product": 9,
+    "color": 6,
+    "size": "L",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-NEGRA-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 24,
+  "fields": {
+    "product": 9,
+    "color": 6,
+    "size": "XL",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-NEGRA-XL"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 25,
+  "fields": {
+    "product": 10,
+    "color": 7,
+    "size": "S",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-GRIS-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 26,
+  "fields": {
+    "product": 10,
+    "color": 7,
+    "size": "M",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-GRIS-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 27,
+  "fields": {
+    "product": 10,
+    "color": 7,
+    "size": "L",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-GRIS-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 28,
+  "fields": {
+    "product": 10,
+    "color": 7,
+    "size": "XL",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-GRIS-XL"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 29,
+  "fields": {
+    "product": 11,
+    "color": 8,
+    "size": "S",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-BLANCA-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 30,
+  "fields": {
+    "product": 11,
+    "color": 8,
+    "size": "M",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-BLANCA-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 31,
+  "fields": {
+    "product": 11,
+    "color": 8,
+    "size": "L",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-BLANCA-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 32,
+  "fields": {
+    "product": 11,
+    "color": 8,
+    "size": "XL",
+    "stock": 25,
+    "sku": "HOODIE-ESSEN-BLANCA-XL"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 33,
+  "fields": {
+    "product": 12,
+    "color": 9,
+    "size": "S",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-NEGRA-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 34,
+  "fields": {
+    "product": 12,
+    "color": 9,
+    "size": "M",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-NEGRA-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 35,
+  "fields": {
+    "product": 12,
+    "color": 9,
+    "size": "L",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-NEGRA-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 36,
+  "fields": {
+    "product": 12,
+    "color": 9,
+    "size": "XL",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-NEGRA-XL"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 37,
+  "fields": {
+    "product": 13,
+    "color": 10,
+    "size": "S",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-GRIS-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 38,
+  "fields": {
+    "product": 13,
+    "color": 10,
+    "size": "M",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-GRIS-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 39,
+  "fields": {
+    "product": 13,
+    "color": 10,
+    "size": "L",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-GRIS-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 40,
+  "fields": {
+    "product": 13,
+    "color": 10,
+    "size": "XL",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-GRIS-XL"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 41,
+  "fields": {
+    "product": 14,
+    "color": 11,
+    "size": "S",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-BLANCA-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 42,
+  "fields": {
+    "product": 14,
+    "color": 11,
+    "size": "M",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-BLANCA-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 43,
+  "fields": {
+    "product": 14,
+    "color": 11,
+    "size": "L",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-BLANCA-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 44,
+  "fields": {
+    "product": 14,
+    "color": 11,
+    "size": "XL",
+    "stock": 25,
+    "sku": "PLAYERA-ESSE-BLANCA-XL"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 45,
+  "fields": {
+    "product": 5,
+    "color": 12,
+    "size": "S",
+    "stock": 24,
+    "sku": "HOODIE-ALO-B-BLACK-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 46,
+  "fields": {
+    "product": 5,
+    "color": 12,
+    "size": "M",
+    "stock": 25,
+    "sku": "HOODIE-ALO-B-BLACK-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 47,
+  "fields": {
+    "product": 5,
+    "color": 12,
+    "size": "L",
+    "stock": 25,
+    "sku": "HOODIE-ALO-B-BLACK-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 48,
+  "fields": {
+    "product": 5,
+    "color": 12,
+    "size": "XL",
+    "stock": 25,
+    "sku": "HOODIE-ALO-B-BLACK-XL"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 49,
+  "fields": {
+    "product": 6,
+    "color": 13,
+    "size": "S",
+    "stock": 25,
+    "sku": "HOODIE-ALO-N-NAVY-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 50,
+  "fields": {
+    "product": 6,
+    "color": 13,
+    "size": "M",
+    "stock": 25,
+    "sku": "HOODIE-ALO-N-NAVY-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 51,
+  "fields": {
+    "product": 6,
+    "color": 13,
+    "size": "L",
+    "stock": 25,
+    "sku": "HOODIE-ALO-N-NAVY-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 52,
+  "fields": {
+    "product": 6,
+    "color": 13,
+    "size": "XL",
+    "stock": 25,
+    "sku": "HOODIE-ALO-N-NAVY-XL"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 53,
+  "fields": {
+    "product": 7,
+    "color": 14,
+    "size": "S",
+    "stock": 25,
+    "sku": "HOODIE-ALO-E-ESPRES-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 54,
+  "fields": {
+    "product": 7,
+    "color": 14,
+    "size": "M",
+    "stock": 25,
+    "sku": "HOODIE-ALO-E-ESPRES-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 55,
+  "fields": {
+    "product": 7,
+    "color": 14,
+    "size": "L",
+    "stock": 25,
+    "sku": "HOODIE-ALO-E-ESPRES-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 56,
+  "fields": {
+    "product": 7,
+    "color": 14,
+    "size": "XL",
+    "stock": 25,
+    "sku": "HOODIE-ALO-E-ESPRES-XL"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 57,
+  "fields": {
+    "product": 8,
+    "color": 15,
+    "size": "S",
+    "stock": 25,
+    "sku": "HOODIE-ALO-G-GREY-S"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 58,
+  "fields": {
+    "product": 8,
+    "color": 15,
+    "size": "M",
+    "stock": 25,
+    "sku": "HOODIE-ALO-G-GREY-M"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 59,
+  "fields": {
+    "product": 8,
+    "color": 15,
+    "size": "L",
+    "stock": 25,
+    "sku": "HOODIE-ALO-G-GREY-L"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 60,
+  "fields": {
+    "product": 8,
+    "color": 15,
+    "size": "XL",
+    "stock": 25,
+    "sku": "HOODIE-ALO-G-GREY-XL"
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 6,
+  "fields": {
+    "product": 2,
+    "title": "Tela premium",
+    "description": "Algodón peinado de 380 g/m² con interior afelpado. Estructura firme y abrigadora.",
+    "image": "products/features/crewneck-navy-0-navy.jpeg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 7,
+  "fields": {
+    "product": 2,
+    "title": "Logo bordado",
+    "description": "Logotipo MUTE bordado en el pecho con acabado tonal.",
+    "image": "products/features/crewneck-navy-1-navy.jpeg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 8,
+  "fields": {
+    "product": 2,
+    "title": "Cuello redondo reforzado",
+    "description": "Cuello rib 2x2 con cinta de hombro a hombro para que no se deforme.",
+    "image": "products/features/crewneck-navy-2-navy-2.jpeg",
+    "icon": "⭕",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 9,
+  "fields": {
+    "product": 2,
+    "title": "Puños y cintura tejidos",
+    "description": "Acanalado elástico que recupera su forma.",
+    "image": "products/features/crewneck-navy-3-navy-2.jpeg",
+    "icon": "👕",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 18,
+  "fields": {
+    "product": 5,
+    "title": "Tela premium",
+    "description": "Algodón peinado de 380 g/m² con interior afelpado (french terry). Suave, pesada y con caída estructurada.",
+    "image": "products/features/calidad-hoodie-alo-black-0.jpg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 19,
+  "fields": {
+    "product": 5,
+    "title": "Logo bordado",
+    "description": "Logotipo MUTE bordado a hilo, no estampado. Resiste cientos de lavadas sin desgastarse.",
+    "image": "products/features/calidad-hoodie-alo-black-1.jpg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 20,
+  "fields": {
+    "product": 5,
+    "title": "Capucha forrada",
+    "description": "Capucha de doble capa con cordón de algodón grueso y ojales metálicos antióxido.",
+    "image": "products/features/calidad-hoodie-alo-black-2.jpg",
+    "icon": "🧥",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 21,
+  "fields": {
+    "product": 5,
+    "title": "Puños y cintura tejidos",
+    "description": "Rib acanalado 2x2 en puños y bastilla que mantiene la forma y no se vence.",
+    "image": "products/features/calidad-hoodie-alo-black-3.jpg",
+    "icon": "👕",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 22,
+  "fields": {
+    "product": 5,
+    "title": "Bolsillo canguro",
+    "description": "Bolsillo frontal reforzado con costura doble y entrada amplia.",
+    "image": "products/features/calidad-hoodie-alo-black-4.jpg",
+    "icon": "🦘",
+    "sort_order": 4
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 23,
+  "fields": {
+    "product": 6,
+    "title": "Tela premium",
+    "description": "Algodón peinado de 380 g/m² con interior afelpado (french terry). Suave, pesada y con caída estructurada.",
+    "image": "products/features/calidad-hoodie-alo-navy-0.jpg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 24,
+  "fields": {
+    "product": 6,
+    "title": "Logo bordado",
+    "description": "Logotipo MUTE bordado a hilo, no estampado. Resiste cientos de lavadas sin desgastarse.",
+    "image": "products/features/calidad-hoodie-alo-navy-1.jpg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 25,
+  "fields": {
+    "product": 6,
+    "title": "Capucha forrada",
+    "description": "Capucha de doble capa con cordón de algodón grueso y ojales metálicos antióxido.",
+    "image": "products/features/calidad-hoodie-alo-navy-2.jpg",
+    "icon": "🧥",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 26,
+  "fields": {
+    "product": 6,
+    "title": "Puños y cintura tejidos",
+    "description": "Rib acanalado 2x2 en puños y bastilla que mantiene la forma y no se vence.",
+    "image": "products/features/calidad-hoodie-alo-navy-3.jpg",
+    "icon": "👕",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 27,
+  "fields": {
+    "product": 6,
+    "title": "Bolsillo canguro",
+    "description": "Bolsillo frontal reforzado con costura doble y entrada amplia.",
+    "image": "products/features/calidad-hoodie-alo-navy-4.jpg",
+    "icon": "🦘",
+    "sort_order": 4
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 28,
+  "fields": {
+    "product": 7,
+    "title": "Tela premium",
+    "description": "Algodón peinado de 380 g/m² con interior afelpado (french terry). Suave, pesada y con caída estructurada.",
+    "image": "products/features/calidad-hoodie-alo-espresso-0.jpg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 29,
+  "fields": {
+    "product": 7,
+    "title": "Logo bordado",
+    "description": "Logotipo MUTE bordado a hilo, no estampado. Resiste cientos de lavadas sin desgastarse.",
+    "image": "products/features/calidad-hoodie-alo-espresso-1.jpg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 30,
+  "fields": {
+    "product": 7,
+    "title": "Capucha forrada",
+    "description": "Capucha de doble capa con cordón de algodón grueso y ojales metálicos antióxido.",
+    "image": "products/features/calidad-hoodie-alo-espresso-2.jpg",
+    "icon": "🧥",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 31,
+  "fields": {
+    "product": 7,
+    "title": "Puños y cintura tejidos",
+    "description": "Rib acanalado 2x2 en puños y bastilla que mantiene la forma y no se vence.",
+    "image": "products/features/calidad-hoodie-alo-espresso-3.jpg",
+    "icon": "👕",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 32,
+  "fields": {
+    "product": 7,
+    "title": "Bolsillo canguro",
+    "description": "Bolsillo frontal reforzado con costura doble y entrada amplia.",
+    "image": "products/features/calidad-hoodie-alo-espresso-4.jpg",
+    "icon": "🦘",
+    "sort_order": 4
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 33,
+  "fields": {
+    "product": 8,
+    "title": "Tela premium",
+    "description": "Algodón peinado de 380 g/m² con interior afelpado (french terry). Suave, pesada y con caída estructurada.",
+    "image": "products/features/calidad-hoodie-alo-grey-0.jpg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 34,
+  "fields": {
+    "product": 8,
+    "title": "Logo bordado",
+    "description": "Logotipo MUTE bordado a hilo, no estampado. Resiste cientos de lavadas sin desgastarse.",
+    "image": "products/features/calidad-hoodie-alo-grey-1.jpg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 35,
+  "fields": {
+    "product": 8,
+    "title": "Capucha forrada",
+    "description": "Capucha de doble capa con cordón de algodón grueso y ojales metálicos antióxido.",
+    "image": "products/features/calidad-hoodie-alo-grey-2.jpg",
+    "icon": "🧥",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 36,
+  "fields": {
+    "product": 8,
+    "title": "Puños y cintura tejidos",
+    "description": "Rib acanalado 2x2 en puños y bastilla que mantiene la forma y no se vence.",
+    "image": "products/features/calidad-hoodie-alo-grey-3.jpg",
+    "icon": "👕",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 37,
+  "fields": {
+    "product": 8,
+    "title": "Bolsillo canguro",
+    "description": "Bolsillo frontal reforzado con costura doble y entrada amplia.",
+    "image": "products/features/calidad-hoodie-alo-grey-4.jpg",
+    "icon": "🦘",
+    "sort_order": 4
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 38,
+  "fields": {
+    "product": 9,
+    "title": "Tela premium",
+    "description": "Algodón peinado de 380 g/m² con interior afelpado (french terry). Suave, pesada y con caída estructurada.",
+    "image": "products/features/calidad-hoodie-essentials-negra-0.jpg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 39,
+  "fields": {
+    "product": 9,
+    "title": "Logo bordado",
+    "description": "Logotipo MUTE bordado a hilo, no estampado. Resiste cientos de lavadas sin desgastarse.",
+    "image": "products/features/calidad-hoodie-essentials-negra-1.jpg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 40,
+  "fields": {
+    "product": 9,
+    "title": "Capucha forrada",
+    "description": "Capucha de doble capa con cordón de algodón grueso y ojales metálicos antióxido.",
+    "image": "products/features/calidad-hoodie-essentials-negra-2.jpg",
+    "icon": "🧥",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 41,
+  "fields": {
+    "product": 9,
+    "title": "Puños y cintura tejidos",
+    "description": "Rib acanalado 2x2 en puños y bastilla que mantiene la forma y no se vence.",
+    "image": "products/features/calidad-hoodie-essentials-negra-3.jpg",
+    "icon": "👕",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 42,
+  "fields": {
+    "product": 10,
+    "title": "Tela premium",
+    "description": "Algodón peinado de 380 g/m² con interior afelpado (french terry). Suave, pesada y con caída estructurada.",
+    "image": "products/features/calidad-hoodie-essentials-gris-0.jpg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 43,
+  "fields": {
+    "product": 10,
+    "title": "Logo bordado",
+    "description": "Logotipo MUTE bordado a hilo, no estampado. Resiste cientos de lavadas sin desgastarse.",
+    "image": "products/features/calidad-hoodie-essentials-gris-1.jpg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 44,
+  "fields": {
+    "product": 10,
+    "title": "Capucha forrada",
+    "description": "Capucha de doble capa con cordón de algodón grueso y ojales metálicos antióxido.",
+    "image": "products/features/calidad-hoodie-essentials-gris-2.jpg",
+    "icon": "🧥",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 45,
+  "fields": {
+    "product": 10,
+    "title": "Puños y cintura tejidos",
+    "description": "Rib acanalado 2x2 en puños y bastilla que mantiene la forma y no se vence.",
+    "image": "products/features/calidad-hoodie-essentials-gris-3.jpg",
+    "icon": "👕",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 46,
+  "fields": {
+    "product": 11,
+    "title": "Tela premium",
+    "description": "Algodón peinado de 380 g/m² con interior afelpado (french terry). Suave, pesada y con caída estructurada.",
+    "image": "products/features/calidad-hoodie-essentials-blanca-0.jpg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 47,
+  "fields": {
+    "product": 11,
+    "title": "Logo bordado",
+    "description": "Logotipo MUTE bordado a hilo, no estampado. Resiste cientos de lavadas sin desgastarse.",
+    "image": "products/features/calidad-hoodie-essentials-blanca-1.jpg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 48,
+  "fields": {
+    "product": 11,
+    "title": "Capucha forrada",
+    "description": "Capucha de doble capa con cordón de algodón grueso y ojales metálicos antióxido.",
+    "image": "products/features/calidad-hoodie-essentials-blanca-2.jpg",
+    "icon": "🧥",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 49,
+  "fields": {
+    "product": 11,
+    "title": "Puños y cintura tejidos",
+    "description": "Rib acanalado 2x2 en puños y bastilla que mantiene la forma y no se vence.",
+    "image": "products/features/calidad-hoodie-essentials-blanca-3.jpg",
+    "icon": "👕",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 50,
+  "fields": {
+    "product": 12,
+    "title": "Tela peso medio",
+    "description": "Jersey 100% algodón de 220 g/m². Fresca, opaca y con cuerpo.",
+    "image": "products/features/calidad-playera-essentials-negra-0.jpg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 51,
+  "fields": {
+    "product": 12,
+    "title": "Logo bordado",
+    "description": "Detalle MUTE bordado, acabado premium.",
+    "image": "products/features/calidad-playera-essentials-negra-1.jpg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 52,
+  "fields": {
+    "product": 12,
+    "title": "Cuello reforzado",
+    "description": "Cuello redondo con rib y costura doble que no se estira.",
+    "image": "products/features/calidad-playera-essentials-negra-2.jpg",
+    "icon": "⭕",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 53,
+  "fields": {
+    "product": 12,
+    "title": "Corte regular",
+    "description": "Silueta recta moderna, ni muy holgada ni entallada.",
+    "image": "products/features/calidad-playera-essentials-negra-3.jpg",
+    "icon": "✂️",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 54,
+  "fields": {
+    "product": 13,
+    "title": "Tela peso medio",
+    "description": "Jersey 100% algodón de 220 g/m². Fresca, opaca y con cuerpo.",
+    "image": "products/features/calidad-playera-essentials-gris-0.jpg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 55,
+  "fields": {
+    "product": 13,
+    "title": "Logo bordado",
+    "description": "Detalle MUTE bordado, acabado premium.",
+    "image": "products/features/calidad-playera-essentials-gris-1.jpg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 56,
+  "fields": {
+    "product": 13,
+    "title": "Cuello reforzado",
+    "description": "Cuello redondo con rib y costura doble que no se estira.",
+    "image": "products/features/calidad-playera-essentials-gris-2.jpg",
+    "icon": "⭕",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 57,
+  "fields": {
+    "product": 13,
+    "title": "Corte regular",
+    "description": "Silueta recta moderna, ni muy holgada ni entallada.",
+    "image": "products/features/calidad-playera-essentials-gris-3.jpg",
+    "icon": "✂️",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 58,
+  "fields": {
+    "product": 14,
+    "title": "Tela peso medio",
+    "description": "Jersey 100% algodón de 220 g/m². Fresca, opaca y con cuerpo.",
+    "image": "products/features/calidad-playera-essentials-blanca-0.jpg",
+    "icon": "🧵",
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 59,
+  "fields": {
+    "product": 14,
+    "title": "Logo bordado",
+    "description": "Detalle MUTE bordado, acabado premium.",
+    "image": "products/features/calidad-playera-essentials-blanca-1.jpg",
+    "icon": "🏷️",
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 60,
+  "fields": {
+    "product": 14,
+    "title": "Cuello reforzado",
+    "description": "Cuello redondo con rib y costura doble que no se estira.",
+    "image": "products/features/calidad-playera-essentials-blanca-2.jpg",
+    "icon": "⭕",
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productfeature",
+  "pk": 61,
+  "fields": {
+    "product": 14,
+    "title": "Corte regular",
+    "description": "Silueta recta moderna, ni muy holgada ni entallada.",
+    "image": "products/features/calidad-playera-essentials-blanca-3.jpg",
+    "icon": "✂️",
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 51,
+  "fields": {
+    "product": 5,
+    "color": 12,
+    "image": "products/gallery/black-4_KnCPJd8.jpeg",
+    "alt_text": "Hoodie Alo · Black Black",
+    "is_primary": false,
+    "sort_order": 3
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 52,
+  "fields": {
+    "product": 5,
+    "color": 12,
+    "image": "products/gallery/black-5_W7o1Aqf.jpeg",
+    "alt_text": "Hoodie Alo · Black Black",
+    "is_primary": false,
+    "sort_order": 4
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 53,
+  "fields": {
+    "product": 6,
+    "color": 13,
+    "image": "products/colors/navy_nCsCIlm.jpeg",
+    "alt_text": "Hoodie Alo · Navy Navy",
+    "is_primary": false,
+    "sort_order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 54,
+  "fields": {
+    "product": 6,
+    "color": 13,
+    "image": "products/gallery/navy-back.jpeg",
+    "alt_text": "Hoodie Alo · Navy Navy",
+    "is_primary": false,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 55,
+  "fields": {
+    "product": 7,
+    "color": 14,
+    "image": "products/gallery/espresso-2_QI1FDnK.jpeg",
+    "alt_text": "Hoodie Alo · Espresso Espresso",
+    "is_primary": false,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 56,
+  "fields": {
+    "product": 7,
+    "color": 14,
+    "image": "products/gallery/espresso-3_U5JHV71.jpeg",
+    "alt_text": "Hoodie Alo · Espresso Espresso",
+    "is_primary": false,
+    "sort_order": 2
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 57,
+  "fields": {
+    "product": 8,
+    "color": 15,
+    "image": "products/gallery/grey-2_IJHWkAh.jpeg",
+    "alt_text": "Hoodie Alo · Grey Grey",
+    "is_primary": false,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 58,
+  "fields": {
+    "product": 2,
+    "color": 5,
+    "image": "products/gallery/navy-2_WXwwQ6L.jpeg",
+    "alt_text": "Crewneck Navy Navy",
+    "is_primary": false,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 59,
+  "fields": {
+    "product": 9,
+    "color": 6,
+    "image": "products/gallery/negra-2.jpeg",
+    "alt_text": "Hoodie Essentials Negra",
+    "is_primary": false,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 60,
+  "fields": {
+    "product": 10,
+    "color": 7,
+    "image": "products/gallery/gris-2.jpeg",
+    "alt_text": "Hoodie Essentials Gris",
+    "is_primary": false,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 61,
+  "fields": {
+    "product": 11,
+    "color": 8,
+    "image": "products/gallery/blanca-2.jpeg",
+    "alt_text": "Hoodie Essentials Blanca",
+    "is_primary": false,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 62,
+  "fields": {
+    "product": 12,
+    "color": 9,
+    "image": "products/gallery/negra-2_Bvypcq0.jpeg",
+    "alt_text": "Playera Essentials Negra",
+    "is_primary": false,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 63,
+  "fields": {
+    "product": 13,
+    "color": 10,
+    "image": "products/gallery/gris-2_mM3PDpV.jpeg",
+    "alt_text": "Playera Essentials Gris",
+    "is_primary": false,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 64,
+  "fields": {
+    "product": 14,
+    "color": 11,
+    "image": "products/gallery/blanca-2_4WIEAJt.jpeg",
+    "alt_text": "Playera Essentials Blanca",
+    "is_primary": false,
+    "sort_order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 65,
+  "fields": {
+    "product": 8,
+    "color": 15,
+    "image": "products/gallery/grey-3.jpeg",
+    "alt_text": "Hoodie Alo Grey · espalda",
+    "is_primary": false,
+    "sort_order": 2
+  }
+}
+]
