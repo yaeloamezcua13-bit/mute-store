@@ -25,10 +25,11 @@ CONFIG = {
     "hoodie-alo-black": {
         "primary": "products/editorial/black.jpg",
         "gallery": [("full", "products/colors/mute-black-model.jpg"),
+                    ("full", "products/ai/hoodie-alo-black-front.jpg"),
                     ("full", "products/colors/hoodie-alo-black-clean.jpg"),
                     ("full", "products/gallery/black-4.jpeg")],
         "features": {
-            "Tela premium":            ("full", "products/colors/hoodie-alo-black-clean.jpg"),
+            "Tela premium":            ("crop", "products/ai/hoodie-alo-black-front.jpg", (0.20, 0.50, 0.46, 0.74)),
             "Logo bordado":            ("full", "products/gallery/black-4.jpeg"),
             "Capucha forrada":         ("full", "products/gallery/black-2.jpeg"),
             "Puños y cintura tejidos": ("full", "products/gallery/black-3.jpeg"),
@@ -38,10 +39,11 @@ CONFIG = {
     "hoodie-alo-navy": {
         "primary": "products/editorial/navy.jpg",
         "gallery": [("full", "products/colors/mute-navy-model.jpg"),
+                    ("full", "products/ai/hoodie-alo-navy-front.jpg"),
                     ("full", "products/gallery/mute-navy-flat.jpg"),
                     ("full", "products/gallery/mute-navy-detail.jpg")],
         "features": {
-            "Tela premium":            ("full", "products/gallery/mute-navy-flat.jpg"),
+            "Tela premium":            ("crop", "products/ai/hoodie-alo-navy-front.jpg", (0.20, 0.50, 0.46, 0.74)),
             "Logo bordado":            ("full", "products/gallery/mute-navy-detail.jpg"),
             "Capucha forrada":         ("full", "products/gallery/navy-3.png"),
             "Puños y cintura tejidos": ("full", "products/gallery/navy-back.jpeg"),
@@ -51,27 +53,29 @@ CONFIG = {
     "hoodie-alo-grey": {
         "primary": "products/editorial/grey.jpg",
         "gallery": [("full", "products/gallery/grey-2.jpeg"),
+                    ("full", "products/ai/hoodie-alo-grey-front.jpg"),
                     ("full", "products/colors/hoodie-alo-grey-clean.jpg"),
                     ("full", "products/gallery/mute-grey-detail.jpg")],
         "features": {
-            "Tela premium":            ("full", "products/colors/hoodie-alo-grey-clean.jpg"),
+            "Tela premium":            ("crop", "products/ai/hoodie-alo-grey-front.jpg", (0.20, 0.50, 0.46, 0.74)),
             "Logo bordado":            ("full", "products/gallery/mute-grey-detail.jpg"),
-            "Capucha forrada":         ("crop", "products/gallery/grey-2.jpeg", (0.15, 0.00, 0.82, 0.20)),
+            "Capucha forrada":         ("crop", "products/ai/hoodie-alo-grey-front.jpg", (0.30, 0.09, 0.70, 0.33)),
             "Puños y cintura tejidos": ("full", "products/gallery/grey-3.jpeg"),
-            "Bolsillo canguro":        ("crop", "products/gallery/grey-2.jpeg", (0.24, 0.41, 0.73, 0.66)),
+            "Bolsillo canguro":        ("crop", "products/ai/hoodie-alo-grey-front.jpg", (0.30, 0.55, 0.70, 0.80)),
         },
     },
     "hoodie-alo-espresso": {
         "primary": "products/editorial/espresso.jpg",
         "gallery": [("full", "products/colors/mute-espresso-model.jpg"),
+                    ("full", "products/ai/hoodie-alo-espresso-front.jpg"),
                     ("full", "products/colors/espresso.jpg"),
                     ("full", "products/gallery/espresso-3.jpeg")],
         "features": {
-            "Tela premium":            ("full", "products/colors/espresso.jpg"),
+            "Tela premium":            ("crop", "products/ai/hoodie-alo-espresso-front.jpg", (0.20, 0.50, 0.46, 0.74)),
             "Logo bordado":            ("full", "products/gallery/espresso-3.jpeg"),
             "Capucha forrada":         ("full", "products/gallery/espresso-2.jpeg"),
-            "Puños y cintura tejidos": ("crop", "products/gallery/espresso-2.jpeg", (0.14, 0.80, 0.72, 1.00)),
-            "Bolsillo canguro":        ("crop", "products/gallery/espresso-2.jpeg", (0.16, 0.52, 0.78, 0.92)),
+            "Puños y cintura tejidos": ("crop", "products/ai/hoodie-alo-espresso-front.jpg", (0.10, 0.74, 0.40, 0.93)),
+            "Bolsillo canguro":        ("crop", "products/ai/hoodie-alo-espresso-front.jpg", (0.30, 0.55, 0.70, 0.80)),
         },
     },
 }
@@ -91,6 +95,7 @@ def crop_square(img, box):
     if nx1 > W: nx0 -= (nx1 - W); nx1 = W
     if ny1 > H: ny0 -= (ny1 - H); ny1 = H
     c = img.crop((int(nx0), int(ny0), int(nx1), int(ny1)))
+    c = c.resize((1000, 1000), Image.LANCZOS)
     return c.filter(ImageFilter.UnsharpMask(1.6, 110, 2))
 
 
