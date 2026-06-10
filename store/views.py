@@ -65,7 +65,7 @@ def product_detail(request, slug):
         "product": product,
         "variant_map_json": json.dumps(variant_map),
         "images_by_color_json": json.dumps(images_by_color),
-        "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+        "sizes": ["XS", "S", "M", "L"],
         "breakdown": product.price_breakdown,
         "related": related,
     }

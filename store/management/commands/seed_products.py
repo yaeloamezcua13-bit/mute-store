@@ -9,7 +9,7 @@ from store.models import (
     ProductVariant,
 )
 
-SIZES = ["S", "M", "L", "XL"]
+SIZES = ["XS", "S", "M", "L"]
 DEFAULT_STOCK = 25
 
 # Características para el showcase deslizable (tela, logo, capucha, cuello...)
