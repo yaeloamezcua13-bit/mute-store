@@ -138,9 +138,15 @@
     <a href="{{ product.get_absolute_url }}" class="card reveal">
       <div class="card-media">
         {% if product.badge %}<span class="card-badge">{{ product.badge }}</span>{% endif %}
-        <div class="ph" style="--ph-color: {% if color %}{{ color.hex_code }}{% else %}#2a2a2a{% endif %}">
-          <div class="ph-hoodie"><span class="ph-logo">MUTE</span></div>
-        </div>
+        {% if color.image %}
+          <img src="{{ color.image.url }}" alt="{{ product.name }}">
+        {% elif product.primary_image %}
+          <img src="{{ product.primary_image.image.url }}" alt="{{ product.name }}">
+        {% else %}
+          <div class="ph" style="--ph-color: {% if color %}{{ color.hex_code }}{% else %}#2a2a2a{% endif %}">
+            <div class="ph-hoodie"><span class="ph-logo">MUTE</span></div>
+          </div>
+        {% endif %}
       </div>
       <div class="card-body">
         <span class="card-cat">{{ product.get_category_display|t }}</span>
