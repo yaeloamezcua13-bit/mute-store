@@ -23,8 +23,9 @@ from store.models import Product, ProductImage
 # spec: ("full", ruta)  ó  ("crop", ruta, (x0,y0,x1,y1))
 CONFIG = {
     "hoodie-alo-black": {
-        "primary": "products/colors/mute-black-model.jpg",
-        "gallery": [("full", "products/colors/hoodie-alo-black-clean.jpg"),
+        "primary": "products/editorial/black.jpg",
+        "gallery": [("full", "products/colors/mute-black-model.jpg"),
+                    ("full", "products/colors/hoodie-alo-black-clean.jpg"),
                     ("full", "products/gallery/black-4.jpeg")],
         "features": {
             "Tela premium":            ("full", "products/colors/hoodie-alo-black-clean.jpg"),
@@ -35,8 +36,9 @@ CONFIG = {
         },
     },
     "hoodie-alo-navy": {
-        "primary": "products/colors/mute-navy-model.jpg",
-        "gallery": [("full", "products/gallery/mute-navy-flat.jpg"),
+        "primary": "products/editorial/navy.jpg",
+        "gallery": [("full", "products/colors/mute-navy-model.jpg"),
+                    ("full", "products/gallery/mute-navy-flat.jpg"),
                     ("full", "products/gallery/mute-navy-detail.jpg")],
         "features": {
             "Tela premium":            ("full", "products/gallery/mute-navy-flat.jpg"),
@@ -47,8 +49,9 @@ CONFIG = {
         },
     },
     "hoodie-alo-grey": {
-        "primary": "products/gallery/grey-2.jpeg",
-        "gallery": [("full", "products/colors/hoodie-alo-grey-clean.jpg"),
+        "primary": "products/editorial/grey.jpg",
+        "gallery": [("full", "products/gallery/grey-2.jpeg"),
+                    ("full", "products/colors/hoodie-alo-grey-clean.jpg"),
                     ("full", "products/gallery/mute-grey-detail.jpg")],
         "features": {
             "Tela premium":            ("full", "products/colors/hoodie-alo-grey-clean.jpg"),
@@ -59,8 +62,9 @@ CONFIG = {
         },
     },
     "hoodie-alo-espresso": {
-        "primary": "products/colors/mute-espresso-model.jpg",
-        "gallery": [("full", "products/colors/espresso.jpg"),
+        "primary": "products/editorial/espresso.jpg",
+        "gallery": [("full", "products/colors/mute-espresso-model.jpg"),
+                    ("full", "products/colors/espresso.jpg"),
                     ("full", "products/gallery/espresso-3.jpeg")],
         "features": {
             "Tela premium":            ("full", "products/colors/espresso.jpg"),
