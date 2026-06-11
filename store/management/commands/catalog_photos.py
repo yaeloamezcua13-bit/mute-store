@@ -1,38 +1,36 @@
 """
-Fotos web para Essentials (hoodies + playeras) y Crewneck Navy.
+Fotos web unificadas para TODO el catálogo (Alo + Essentials + Crewneck).
 
-Asigna fotos IA (calidad estudio, mismo look que las Alo) generadas con
-image-to-image desde las fotos reales, conservando los logos reales
-(ESSENTIALS / FEAR OF GOD, alo). Todo es ASIGNACIÓN de rutas a archivos ya
-versionados en media/products/{ai,features}; no procesa imágenes. Idempotente.
+Cada producto: 5 fotos con variedad de ángulos y UN solo fondo (estudio de
+concreto cálido) para armonía visual:
+  principal = frente (modelo) · galería = [lado, espalda, producto sin modelo, logo]
+Calidad: recortes nítidos con encuadre limpio (sin cordones/barbilla), 1000px.
 
-  Galería por producto (5 fotos): modelo IA (principal) + producto frente IA +
-  producto espalda IA + foto real frente + foto real espalda.
-  Calidad (4): recortes nítidos 2K en media/products/features/calidad-<slug>-<i>.jpg
+Las imágenes se generan con image-to-image (Gemini) desde las fotos reales,
+conservando logos/colores reales. Aquí solo se ASIGNAN rutas a archivos ya
+versionados en media/products/{ai/v2, features}. Idempotente; corre en build.sh.
 
     python manage.py catalog_photos
 """
+from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from store.models import Product, ProductImage
 
-# slug -> (real_front, real_back)
-REAL = {
-    "hoodie-essentials-negra":  ("products/colors/negra.jpeg",          "products/gallery/negra-2.jpeg"),
-    "hoodie-essentials-gris":   ("products/colors/gris.jpeg",           "products/gallery/gris-2.jpeg"),
-    "hoodie-essentials-blanca": ("products/colors/blanca.jpeg",         "products/gallery/blanca-2.jpeg"),
-    "playera-essentials-negra": ("products/colors/negra_qke4OBM.jpeg",  "products/gallery/negra-2_Bvypcq0.jpeg"),
-    "playera-essentials-gris":  ("products/colors/gris_iCSh2gS.jpeg",   "products/gallery/gris-2_mM3PDpV.jpeg"),
-    "playera-essentials-blanca":("products/colors/blanca_oLbbsBF.jpeg", "products/gallery/blanca-2_4WIEAJt.jpeg"),
-    "crewneck-navy":            ("products/colors/navy_JWqkkTB.jpeg",   "products/gallery/navy-2_WXwwQ6L.jpeg"),
-}
+SLUGS = [
+    "hoodie-alo-black", "hoodie-alo-grey", "hoodie-alo-navy", "hoodie-alo-espresso",
+    "crewneck-navy",
+    "hoodie-essentials-negra", "hoodie-essentials-gris", "hoodie-essentials-blanca",
+    "playera-essentials-negra", "playera-essentials-gris", "playera-essentials-blanca",
+]
+GALLERY_VIEWS = ["side", "back", "prod", "logo"]   # principal = front
 
 
 class Command(BaseCommand):
-    help = "Fotos web (IA + reales) para Essentials y Crewneck."
+    help = "Fotos web unificadas (5 ángulos, fondo único) + Calidad para todo el catálogo."
 
     def handle(self, *args, **opts):
-        for slug, (real_front, real_back) in REAL.items():
+        for slug in SLUGS:
             product = Product.objects.filter(slug=slug).first()
             if not product:
                 continue
@@ -40,25 +38,25 @@ class Command(BaseCommand):
             if not color:
                 continue
 
-            # principal = modelo IA
-            color.image = f"products/ai/{slug}-model.jpg"
+            # solo actualiza si las fotos v2 ya existen (despliegue parcial seguro)
+            needed = [f"products/ai/v2/{slug}-{v}.jpg" for v in ["front"] + GALLERY_VIEWS]
+            if not all((settings.MEDIA_ROOT / p).exists() for p in needed):
+                self.stdout.write(f"  · {product.name} — sin fotos v2, se deja como está")
+                continue
+
+            color.image = f"products/ai/v2/{slug}-front.jpg"
             color.save(update_fields=["image"])
 
-            # galería: limpia filas (NO borra archivos: las reales se reusan)
             ProductImage.objects.filter(product=product, color=color).delete()
-            gallery = [
-                f"products/ai/{slug}-front.jpg",
-                f"products/ai/{slug}-back.jpg",
-                real_front,
-                real_back,
-            ]
-            for i, path in enumerate(gallery):
-                ProductImage.objects.create(product=product, color=color, sort_order=i, image=path)
+            for i, view in enumerate(GALLERY_VIEWS):
+                ProductImage.objects.create(
+                    product=product, color=color, sort_order=i,
+                    image=f"products/ai/v2/{slug}-{view}.jpg",
+                )
 
-            # Calidad: recortes 2K por sort_order
             for feat in product.features.all():
                 feat.image = f"products/features/calidad-{slug}-{feat.sort_order}.jpg"
                 feat.save(update_fields=["image"])
 
             self.stdout.write(f"  ✓ {product.name}")
-        self.stdout.write(self.style.SUCCESS("Fotos Essentials/Crewneck actualizadas."))
+        self.stdout.write(self.style.SUCCESS("Catálogo: fotos (5 ángulos, fondo único) + Calidad actualizadas."))

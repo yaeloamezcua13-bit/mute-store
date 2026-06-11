@@ -7,5 +7,4 @@ python manage.py collectstatic --no-input
 python manage.py migrate
 python manage.py bootstrap          # carga el catálogo si la BD está vacía
 python manage.py normalize_sizes    # crea XS, elimina XL/XXL
-python manage.py alo_photos         # fotos coordinadas/color-correctas de hoodies Alo
-python manage.py catalog_photos     # fotos IA (galería + Calidad) de Essentials y Crewneck
+python manage.py catalog_photos     # fotos IA unificadas (5 ángulos, fondo único) + Calidad de todo el catálogo
