@@ -25,6 +25,22 @@ SLUGS = [
 ]
 GALLERY_VIEWS = ["side", "back", "prod", "logo"]   # principal = front
 
+# Overrides explícitos (productos cuyas tomas IA salieron con logos incorrectos
+# y no se pueden regenerar): se usan fotos REALES fieles en su lugar.
+OVERRIDES = {
+    # Grey real: logo NEGRO (las IA lo pusieron tonal); gris-2=frente, gris=espalda.
+    "hoodie-essentials-gris": {
+        "primary": "products/gallery/gris-2.jpeg",
+        "gallery": ["products/colors/gris.jpeg"],
+    },
+    # Crewneck: se quitan la espalda con 'alo' (la original no lo lleva) y la repetida.
+    "crewneck-navy": {
+        "primary": "products/ai/crewneck-navy-model.jpg",
+        "gallery": ["products/ai/crewneck-navy-front.jpg",
+                    "products/gallery/navy-2_WXwwQ6L.jpeg"],
+    },
+}
+
 
 class Command(BaseCommand):
     help = "Fotos web unificadas (5 ángulos, fondo único) + Calidad para todo el catálogo."
@@ -36,6 +52,21 @@ class Command(BaseCommand):
                 continue
             color = product.colors.first()
             if not color:
+                continue
+
+            if slug in OVERRIDES:
+                ov = OVERRIDES[slug]
+                color.image = ov["primary"]
+                color.save(update_fields=["image"])
+                ProductImage.objects.filter(product=product, color=color).delete()
+                for i, path in enumerate(ov["gallery"]):
+                    ProductImage.objects.create(product=product, color=color, sort_order=i, image=path)
+                for feat in product.features.all():
+                    cp = f"products/features/calidad-{slug}-{feat.sort_order}.jpg"
+                    if (settings.MEDIA_ROOT / cp).exists():
+                        feat.image = cp
+                        feat.save(update_fields=["image"])
+                self.stdout.write(f"  ✓ {product.name} (fotos reales / curado)")
                 continue
 
             # necesita el frente (principal) + al menos 2 vistas de galería disponibles
