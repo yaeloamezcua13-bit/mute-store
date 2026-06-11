@@ -50,14 +50,14 @@ OVERRIDES = {
     # fotos existentes (logo blanco) para que no quede con una sola foto.
     "hoodie-alo-navy": {
         "primary": "products/editorial/navy.jpg",
-        "gallery": ["products/ai/v2/hoodie-alo-navy-back.jpg",
+        "gallery": ["products/gallery/navy-back.jpeg",
                     "products/gallery/mute-navy-flat.jpg",
                     "products/gallery/mute-navy-detail.jpg"],
     },
     # Grey real: logo NEGRO (las IA lo pusieron tonal); gris-2=frente, gris=espalda.
     "hoodie-essentials-gris": {
-        "primary": "products/gallery/gris-2.jpeg",
-        "gallery": ["products/colors/gris.jpeg",
+        "primary": "products/ai/v2/hoodie-essentials-gris-g-front.jpg",
+        "gallery": ["products/ai/v2/hoodie-essentials-gris-g-back.jpg",
                     "products/ai/v2/hoodie-essentials-gris-d1.jpg",
                     "products/ai/v2/hoodie-essentials-gris-d2.jpg"],
     },
