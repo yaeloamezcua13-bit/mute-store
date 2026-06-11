@@ -28,6 +28,24 @@ GALLERY_VIEWS = ["side", "back", "prod", "logo"]   # principal = front
 # Overrides explícitos (productos cuyas tomas IA salieron con logos incorrectos
 # y no se pueden regenerar): se usan fotos REALES fieles en su lugar.
 OVERRIDES = {
+    # Alo: el logo metálico sólo salió en las tomas de PRODUCTO (las de modelo
+    # quedaron con logo blanco). Sin créditos para regenerar, se usan solo las
+    # de producto (logo cromado + puntas metálicas correctas).
+    "hoodie-alo-black": {
+        "primary": "products/ai/v2/hoodie-alo-black-prod.jpg",
+        "gallery": ["products/ai/v2/hoodie-alo-black-logo.jpg",
+                    "products/ai/v2/hoodie-alo-black-detail.jpg"],
+    },
+    "hoodie-alo-grey": {
+        "primary": "products/ai/v2/hoodie-alo-grey-prod.jpg",
+        "gallery": ["products/ai/v2/hoodie-alo-grey-logo.jpg",
+                    "products/ai/v2/hoodie-alo-grey-detail.jpg"],
+    },
+    "hoodie-alo-espresso": {
+        "primary": "products/ai/v2/hoodie-alo-espresso-prod.jpg",
+        "gallery": ["products/ai/v2/hoodie-alo-espresso-logo.jpg",
+                    "products/ai/v2/hoodie-alo-espresso-detail.jpg"],
+    },
     # Grey real: logo NEGRO (las IA lo pusieron tonal); gris-2=frente, gris=espalda.
     "hoodie-essentials-gris": {
         "primary": "products/gallery/gris-2.jpeg",
