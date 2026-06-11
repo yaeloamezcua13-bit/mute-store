@@ -38,17 +38,19 @@ class Command(BaseCommand):
             if not color:
                 continue
 
-            # solo actualiza si las fotos v2 ya existen (despliegue parcial seguro)
-            needed = [f"products/ai/v2/{slug}-{v}.jpg" for v in ["front"] + GALLERY_VIEWS]
-            if not all((settings.MEDIA_ROOT / p).exists() for p in needed):
-                self.stdout.write(f"  · {product.name} — sin fotos v2, se deja como está")
+            # necesita el frente (principal) + al menos 2 vistas de galería disponibles
+            def have(v):
+                return (settings.MEDIA_ROOT / f"products/ai/v2/{slug}-{v}.jpg").exists()
+            gallery_views = [v for v in GALLERY_VIEWS if have(v)]
+            if not have("front") or len(gallery_views) < 2:
+                self.stdout.write(f"  · {product.name} — sin fotos v2 suficientes, se deja como está")
                 continue
 
             color.image = f"products/ai/v2/{slug}-front.jpg"
             color.save(update_fields=["image"])
 
             ProductImage.objects.filter(product=product, color=color).delete()
-            for i, view in enumerate(GALLERY_VIEWS):
+            for i, view in enumerate(gallery_views):
                 ProductImage.objects.create(
                     product=product, color=color, sort_order=i,
                     image=f"products/ai/v2/{slug}-{view}.jpg",
