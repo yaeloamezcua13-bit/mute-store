@@ -49,17 +49,16 @@ OVERRIDES = {
     # Navy: sin toma de producto metálica (faltó por créditos). Se arma con las
     # fotos existentes (logo blanco) para que no quede con una sola foto.
     "hoodie-alo-navy": {
-        "primary": "products/editorial/navy.jpg",
+        "primary": "products/ai/v2/hoodie-alo-navy-prod.jpg",
         "gallery": ["products/gallery/navy-back.jpeg",
-                    "products/gallery/mute-navy-flat.jpg",
                     "products/gallery/mute-navy-detail.jpg"],
     },
-    # Grey real: logo NEGRO (las IA lo pusieron tonal); gris-2=frente, gris=espalda.
+    # Gris: 3 fotos curadas por el usuario (logo NEGRO correcto, concreto/greige):
+    # frente (modelo), espalda (modelo, corregida en ChatGPT), producto.
     "hoodie-essentials-gris": {
-        "primary": "products/ai/v2/hoodie-essentials-gris-g-front.jpg",
-        "gallery": ["products/ai/v2/hoodie-essentials-gris-g-back.jpg",
-                    "products/ai/v2/hoodie-essentials-gris-d1.jpg",
-                    "products/ai/v2/hoodie-essentials-gris-d2.jpg"],
+        "primary": "products/ai/v2/hoodie-essentials-gris-front.jpg",
+        "gallery": ["products/ai/v2/hoodie-essentials-gris-cback.jpg",
+                    "products/ai/v2/hoodie-essentials-gris-prod.jpg"],
     },
     # Crewneck: se quitan la espalda con 'alo' (la original no lo lleva) y la repetida.
     "crewneck-navy": {
