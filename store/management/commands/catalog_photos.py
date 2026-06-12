@@ -46,10 +46,10 @@ OVERRIDES = {
         "gallery": ["products/ai/v2/hoodie-alo-espresso-logo.jpg",
                     "products/ai/v2/hoodie-alo-espresso-detail.jpg"],
     },
-    # Navy: sin toma de producto metálica (faltó por créditos). Se arma con las
-    # fotos existentes (logo blanco) para que no quede con una sola foto.
+    # Navy: portada = foto de producto provista por el usuario (estudio fondo
+    # oscuro, cordones con punta metálica). Galería: espalda + detalle reales.
     "hoodie-alo-navy": {
-        "primary": "products/ai/v2/hoodie-alo-navy-prod.jpg",
+        "primary": "products/ai/v2/hoodie-alo-navy-cover.jpg",
         "gallery": ["products/gallery/navy-back.jpeg",
                     "products/gallery/mute-navy-detail.jpg"],
     },
